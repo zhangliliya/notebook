@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>v-for指令</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <li v-for="(item,index) in menus" :key="item.id">
+                    <h3>{{index}}-id:{{item.id}} 菜名:{{item.name}}</h3>
+                </li>
+                <ol>
+                    <li v-for="(val,key) in obj" :key="key">
+                        {{key}}-----{{val}}
+                    </li>
+                </ol>
+            </ul>
+        </div>
+        <script src="./vue.js"></script>
+        <script>
+            // v-for
+            new Vue({
+                el:"#app",
+                data:{
+                    menus:[
+                        {id:1,name:'大腰子'},
+                        {id:2,name:'烤鸡翅'},
+                        {id:3,name:'烤韭菜'},
+                        {id:4,name:'烤大蒜'}
+                    ],
+                    obj:{
+                        title:'hello 循环',
+                        author:'小马哥'
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

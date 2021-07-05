@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>watch侦听</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <div id="app">          
+             <input type="text" v-model="msg">
+             <h3>{{msg}}</h3>
+             <h3>{{stus[0].name}}</h3>
+             <button @click="stus[0].name='Tom'">改变学生名字</button>
+        </div>
+        <script src="./vue.js"></script>
+        <script>
+            // watch
+            // Vue.config.devtools = true;
+            // 基本的数据类型可以使用watch直接监听，对于复杂的数据类型object Array要深度监视
+            new Vue({
+                el:"#app",
+                data:{
+                   msg:'',
+                   stus:[{name:'jack'}]
+                },
+                watch:{
+                    'msg':function(newV,oldV){
+                        // console.log(newV,oldV);
+                        // key是属于data对象的属性名 value：监视后的行为 newV:新值 oldV是旧值
+                        if(newV==='100'){
+                            console.log('hello');
+                        }
+                    },
+                    // 对于复杂的对象，需要进行深度的监视
+                    'stus':{
+                        deep:true,
+                        handler:function(newV,oldV){
+                            console.log(newV[0].name);
+                        }
+                    }
+                },
+                methods: {
+                    
+                }
+            })
+        </script>
+    </body>
+</html>
