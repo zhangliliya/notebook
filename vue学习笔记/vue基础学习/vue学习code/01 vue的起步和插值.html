@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>vue的起步和插值</title>
+    </head>
+    <body>
+        <div id="app">
+            <h2>{{msg}}</h2>
+            <h3>{{2}}</h3>
+            <h3>{{"hello"}}</h3>
+            <h3>{{ {id:3} }}</h3>
+            <h3>{{1>2 ?'真的':'假的'}}</h3>
+            <h3>{{txt.split('').reverse().join('')}}</h3>
+            <h3>{{getContent()}}</h3>
+            <h3>{{msg3}}</h3>
+        </div>
+        <!-- 1、引包 -->
+        <script src="./vue.js"></script>
+        <script>
+            // console.log(Vue)
+            // 2、初始化
+           const vm = new Vue({
+                el:'#app',
+                data:{
+                    msg:'hello vue',
+                    txt:'hello',
+                    msg2:'content',
+                    msg3:'<p>插值语法</p>'
+                },
+                methods:{
+                    getContent(){
+                        return this.msg+' '+this.msg2;
+                    }
+                }
+
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>v-on指令</title>
+        <style>
+            .box{
+                width: 200px;
+                height: 200px;
+                background-color: red;
+            }
+            .active{
+                background-color:green;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+           <div>{{num}}</div>
+           <button v-on:click="handleClick">数值加1</button>
+           <div class="box" :class="{active:isActive}"></div>
+           <button @click="changeClick">切换背景颜色</button>
+           <input v-on:keyup.up="submit">  
+        </div>
+        <script src="./vue.js"></script>
+        <script>
+            // v-on
+            new Vue({
+                el:'#app',
+                data:{
+                   num:0,
+                   isActive:false
+                },
+                methods: {
+                    handleClick(){
+                        this.num+=1;
+                    },
+                    changeClick(){
+                        this.isActive=!this.isActive;
+                    },
+                    submit(){
+                        alert(1);
+                    }   
+                }
+            })
+        </script>
+    </body>
+</html>

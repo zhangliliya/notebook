@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>v-model指令</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <p>{{msg}}</p>
+            <input type="text" v-model="msg">
+            <!-- 复选框单选 -->
+            <label for="checkbox">{{checked}}</label>
+            <input type="checkbox"  id="checkbox" v-model="checked">
+
+            <div class="box">
+                <label for="a">黄瓜</label>
+                <input type="checkbox"  id="a" value="黄瓜"  v-model="checkedNames">
+                <br/>
+                <span>{{checkedNames}}</span>
+            </div>
+            <label >{{txt}}</label>
+            <input type="text" v-model.lazy="txt">
+            
+        </div>
+        <script src="./vue.js"></script>
+        <script>
+            // v-model
+            new Vue({
+                el:"#app",
+                data:{
+                    msg:'小马哥',
+                    checked:false,
+                    checkedNames:[],
+                    txt:''
+                },
+                methods: {
+                    
+                }
+            })
+        </script>
+    </body>
+</html>
